@@ -19,8 +19,8 @@ RUN apt-get -y update \
    libglapi-mesa \
    libglvnd0 \
    libglx-mesa0 \
-   libglx0
-
+   libglx0 \
+   curl
 
 COPY vnc /srv/conda/vnc
 COPY vnc/lib64 /usr/lib64
@@ -31,6 +31,10 @@ RUN chown -R $NB_UID:$NB_GID $HOME
 ADD . /opt/install
 RUN fix-permissions /opt/install
 
+RUN curl -sSL http://get.gazebosim.org | sh
+
+
 USER $NB_USER
 RUN cd /opt/install && \
    conda env update -n base --file environment.yml
+
