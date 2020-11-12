@@ -38,3 +38,4 @@ USER $NB_USER
 RUN cd /opt/install && \
    conda env update -n base --file environment.yml
 
+RUN mkdir -p $HOME/.config/autostart && cp /opt/install/app.desktop $HOME/.config/autostart/.
