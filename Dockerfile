@@ -1,1 +1,1 @@
-FROM havardei/rosbasetest:latest
+FROM havardei/rosbasetest:20201116
